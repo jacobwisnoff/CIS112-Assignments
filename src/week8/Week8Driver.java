@@ -22,23 +22,29 @@ public class Week8Driver {
         tree.add(-5);
         tree.add(5);
         System.out.println(tree.min2());
+        System.out.println();
 
         // 32: height()
 
-        //RECURSIVE HEIGHT METHOD
+        //RECURSIVE AND ITERATIVE HEIGHT METHODS
 
         // Multi-element tree - Expected: 2
-        System.out.println("Height of current tree: " + tree.height());
+        System.out.println("RECURSIVE - Height of current tree: " + tree.height());
+        System.out.println("ITERATIVE - Height of current tree : " + tree.height2());
+        System.out.println();
 
         // Empty tree - Expected: -1
         tree = new ExtendedBST<>();
-        System.out.println("Height of current tree: " + tree.height());
+        System.out.println("RECURSIVE - Height of current tree: " + tree.height());
+        System.out.println("ITERATIVE - Height of current tree : " + tree.height2());
+        System.out.println();
 
         // One element tree - Expected: 0
         tree.add(10);
-        System.out.println("Height of current tree: " + tree.height());
+        System.out.println("RECURSIVE - Height of current tree: " + tree.height());
+        System.out.println("ITERATIVE - Height of current tree : " + tree.height2());
+        System.out.println();
 
-        //ITERATIVE HEIGHT METHOD
 
     }
 

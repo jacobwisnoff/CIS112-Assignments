@@ -46,6 +46,33 @@ public class ExtendedBST<T> extends BinarySearchTree<T> {
     }
 
     //Iterative Height Method
+    public int height2(){
+        int leftHeight = 0;
+        int rightHeight = 0;
 
+        if (root == null){
+            return -1;
+        }
+        else if (root.getInfo() != null && root.getLeft() == null && root.getRight() == null){
+            return 0;
+        }
+        else{
+            while (root.getLeft() != null){
+                root = root.getLeft();
+                leftHeight++;
+            }
+            while (root.getRight() != null){
+                root = root.getRight();
+                rightHeight++;
+            }
+
+            if (leftHeight > rightHeight){
+                return leftHeight;
+            }
+            else{
+                return rightHeight;
+            }
+        }
+    }
 
 }

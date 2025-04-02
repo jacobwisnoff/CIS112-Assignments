@@ -1,2 +1,2 @@
-# CIS112-Assignments
+CIS112-Assignments
 Assignments for CIS112

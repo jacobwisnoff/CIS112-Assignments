@@ -10,23 +10,23 @@ public class Week8Driver {
         // 29: min2()
 
         // Empty tree - Expected: null
-        System.out.println(tree.min2());
+        System.out.println("Min element in empty tree: " + tree.min2());
 
-        // One element tree - Expected: 10
+        // One-element tree - Expected: 10
         tree.add(10);
-        System.out.println(tree.min2());
+        System.out.println("Min element in one-element tree: " + tree.min2());
 
-        //Multi-element tree - Expected: -5
+        // Multi-element tree - Expected: -5
         tree.add(0);
         tree.add(15);
         tree.add(-5);
         tree.add(5);
-        System.out.println(tree.min2());
+        System.out.println("Min element in multi-element tree: " + tree.min2());
         System.out.println();
 
         // 32: height()
 
-        //RECURSIVE AND ITERATIVE HEIGHT METHODS
+        // RECURSIVE AND ITERATIVE HEIGHT METHODS
 
         // Multi-element tree - Expected: 2
         System.out.println("RECURSIVE - Height of current tree: " + tree.height());

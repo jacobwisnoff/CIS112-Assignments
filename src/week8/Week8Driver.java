@@ -21,6 +21,7 @@ public class Week8Driver {
         tree.add(15);
         tree.add(-5);
         tree.add(5);
+        tree.add(6);
         System.out.println(tree.min2());
         System.out.println();
 
@@ -28,7 +29,7 @@ public class Week8Driver {
 
         //RECURSIVE AND ITERATIVE HEIGHT METHODS
 
-        // Multi-element tree - Expected: 2
+        // Multi-element tree - Expected: 3
         System.out.println("RECURSIVE - Height of current tree: " + tree.height());
         System.out.println("ITERATIVE - Height of current tree : " + tree.height2());
         System.out.println();

@@ -2,6 +2,7 @@ package week8;
 
 import ch07.trees.*;
 import support.BSTNode;
+import ch04.queues.*;
 
 public class ExtendedBST<T> extends BinarySearchTree<T> {
 
@@ -47,32 +48,31 @@ public class ExtendedBST<T> extends BinarySearchTree<T> {
 
     //Iterative Height Method
     public int height2(){
-        int leftHeight = 0;
-        int rightHeight = 0;
-
-        if (root == null){
+        if (root == null)
             return -1;
-        }
-        else if (root.getInfo() != null && root.getLeft() == null && root.getRight() == null){
-            return 0;
-        }
-        else{
-            while (root.getLeft() != null){
-                root = root.getLeft();
-                leftHeight++;
-            }
-            while (root.getRight() != null){
-                root = root.getRight();
-                rightHeight++;
-            }
 
-            if (leftHeight > rightHeight){
-                return leftHeight;
-            }
-            else{
-                return rightHeight;
+        QueueInterface<BSTNode> queue = new LinkedQueue<>();
+        queue.enqueue(root);
+        int height = -1;
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+
+            height++;
+
+            while (size > 0) {
+                BSTNode node = queue.dequeue();
+
+                if (node.getLeft() != null)
+                    queue.enqueue(node.getLeft());
+
+                if (node.getRight() != null)
+                    queue.enqueue(node.getRight());
+
+                size--;
             }
         }
+        return height;
     }
 
 }

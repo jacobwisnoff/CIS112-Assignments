@@ -51,7 +51,7 @@ public class ExtendedBST<T> extends BinarySearchTree<T> {
         if (root == null)
             return -1;
 
-        QueueInterface<BSTNode> queue = new LinkedQueue<>();
+        QueueInterface<BSTNode<T>> queue = new LinkedQueue<>();
         queue.enqueue(root);
         int height = -1;
 
@@ -61,7 +61,7 @@ public class ExtendedBST<T> extends BinarySearchTree<T> {
             height++;
 
             while (size > 0) {
-                BSTNode node = queue.dequeue();
+                BSTNode<T> node = queue.dequeue();
 
                 if (node.getLeft() != null)
                     queue.enqueue(node.getLeft());
@@ -74,5 +74,41 @@ public class ExtendedBST<T> extends BinarySearchTree<T> {
         }
         return height;
     }
+
+    // Fullness Ratio method
+    public double fRatio(){
+        int height = recHeight(root);        // Maximum height
+        int minHeight = recMinHeight(root);  // Minimum height
+
+        if (height == 0)
+            return 1.0;         // Single node tree
+        else if (height == -1)
+            return 0.0;         // Empty tree
+
+        return (double) minHeight / height;
+    }
+
+    // Helper method to compute minimum height
+    private int recMinHeight(BSTNode<T> root) {
+        if (root == null) {
+            return -1;
+        }
+
+        // If it's a leaf node
+        if (root.getLeft() == null && root.getRight() == null) {
+            return 0;
+        }
+
+        // If one of the children is null, recurse only on the non-null child
+        if (root.getLeft() == null) {
+            return recMinHeight(root.getRight()) + 1;
+        } else if (root.getRight() == null) {
+            return recMinHeight(root.getLeft()) + 1;
+        }
+
+        // Both children exist, take the min of the two
+        return Math.min(recMinHeight(root.getLeft()), recMinHeight(root.getRight())) + 1;
+    }
+
 
 }

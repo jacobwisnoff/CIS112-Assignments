@@ -4,6 +4,7 @@ import ch07.trees.*;
 import ch08.maps.*;
 import java.util.Iterator;
 
+
 public class BSTMap<K,V> implements MapInterface<K,V> {
 
     private BinarySearchTree<MapEntry<K,V>> map;
@@ -19,7 +20,9 @@ public class BSTMap<K,V> implements MapInterface<K,V> {
 
     @Override
     public V get(K k) {
-        return null;
+        MapEntry<K, V> dummyEntry = new MapEntry<>(k, null);
+        MapEntry<K, V> foundEntry = map.get(dummyEntry);
+        return (foundEntry != null) ? foundEntry.getValue() : null;
     }
 
     @Override
@@ -29,22 +32,22 @@ public class BSTMap<K,V> implements MapInterface<K,V> {
 
     @Override
     public boolean contains(K k) {
-        return false;
+        return map.contains((MapEntry<K, V>) k);
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return map.isEmpty();   // returns BST isEmpty method
     }
 
     @Override
     public boolean isFull() {
-        return false;
+        return map.isFull();  // returns BST isFull method
     }
 
     @Override
     public int size() {
-        return 0;
+        return map.size();  // returns BST size method
     }
 
     @Override

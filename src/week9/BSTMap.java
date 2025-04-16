@@ -30,7 +30,7 @@ public class BSTMap<K,V> implements MapInterface<K,V> {
             temp = search.next();
             if (temp.getKey().equals(k)){
 
-                search.remove();
+                map.remove(temp);
                 map.add(entry);
                 return temp.getValue();
             }
@@ -57,23 +57,7 @@ public class BSTMap<K,V> implements MapInterface<K,V> {
 
     @Override
     public V remove(K k) {
-        if (k == null){
-            throw new UnsupportedOperationException("Maps do not allow null keys.");
-        }
-
-        MapEntry<K, V> temp;
-
-        Iterator<MapEntry<K, V>> search = map.iterator();
-        while (search.hasNext()){
-            temp = search.next();
-
-            if (temp.getKey().equals(k)){
-                search.remove();
-                return temp.getValue();
-
-            }
-        }
-        return null;
+        throw new UnsupportedOperationException();
     }
 
     @Override

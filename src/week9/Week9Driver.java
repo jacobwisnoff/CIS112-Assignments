@@ -6,12 +6,12 @@ public class Week9Driver {
 
         BSTMap<Integer,String> map = new BSTMap<>();
         map.put(1, "Bat");
-        map.put(1, "Rat");
-        map.put(1, "Dog");
+        map.put(2, "Rat");
+        map.put(3, "Dog");
 
         System.out.println(map.get(1));
         System.out.println(map.size());
-        map.remove(1);
+
 
     }
 }

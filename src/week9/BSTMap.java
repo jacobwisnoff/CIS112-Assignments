@@ -7,7 +7,7 @@ import java.util.Iterator;
 // *NOTE* The access modifier for the MapEntry() constructor of
 // the MapEntry class must be changed to public *NOTE*
 
-public class BSTMap<K,V> implements MapInterface<K,V> {
+public class BSTMap<K extends Comparable<K>,V> implements MapInterface<K,V> {
 
     private BinarySearchTree<MapEntry<K,V>> map;
 

@@ -7,9 +7,6 @@ public class MergeSortedLL {
 
     public static void main(String[] args){
 
-        public SortedLL<T> merge(){
-
-        }
 
     }
 
